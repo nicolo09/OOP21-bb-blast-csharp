@@ -13,6 +13,9 @@ namespace Project
         {
             _speed = new Tuple<double, double>(0, 0);
         }
+        public MovingBubble(IBubble b) : this(b.Position, b.Color) 
+        {
+        }
         public double GetSpeedX() => _speed.Item1;
 
         public double GetSpeedY() => _speed.Item2;
