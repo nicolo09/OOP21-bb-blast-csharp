@@ -1,8 +1,19 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\..\Emma Leonardi\Project\Bubble.cs" Link="Bubble.cs" />
+    <Compile Include="..\..\Emma Leonardi\Project\BubblesGrid.cs" Link="BubblesGrid.cs" />
+    <Compile Include="..\..\Emma Leonardi\Project\COLOR.cs" Link="COLOR.cs" />
+    <Compile Include="..\..\Emma Leonardi\Project\IBubble.cs" Link="IBubble.cs" />
+    <Compile Include="..\..\Emma Leonardi\Project\IBubblesGrid.cs" Link="IBubblesGrid.cs" />
+    <Compile Include="..\..\Emma Leonardi\Project\TripletIntegerUtility.cs" Link="TripletIntegerUtility.cs" />
+    <Compile Include="..\..\Nicolo Guerra\Project\IGridInfo.cs" Link="IGridInfo.cs" />
+    <Compile Include="..\..\Nicolo Guerra\Project\RegularHexGridInfo.cs" Link="RegularHexGridInfo.cs" />
+  </ItemGroup>
 
 </Project>
