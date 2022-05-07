@@ -50,7 +50,12 @@ namespace Blast_C
                 l.AddScore(s);
                 _f.Save(l);
             }
-            catch { }
+            catch 
+            {
+                ScoreTable t = new ScoreTable();
+                t.AddScore(s);
+                _f.Save(t);
+            }
         }
     }
 }
