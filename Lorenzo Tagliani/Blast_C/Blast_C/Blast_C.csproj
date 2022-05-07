@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\..\..\Emma Leonardi\Project\Bubble.cs" Link="Bubble.cs" />
+    <Compile Include="..\..\..\Emma Leonardi\Project\COLOR.cs" Link="COLOR.cs" />
+    <Compile Include="..\..\..\Emma Leonardi\Project\IBubble.cs" Link="IBubble.cs" />
+    <Compile Include="..\..\..\Nicolo Guerra\Project\FilePersister.cs" Link="FilePersister.cs" />
+    <Compile Include="..\..\..\Nicolo Guerra\Project\IPersister.cs" Link="IPersister.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Collections.NonGeneric" Version="4.3.0" />
+  </ItemGroup>
+
+</Project>
