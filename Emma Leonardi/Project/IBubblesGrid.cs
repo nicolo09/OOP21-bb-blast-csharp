@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
 namespace Project
@@ -9,7 +10,7 @@ namespace Project
         /// The collection of IBubbles in the grid
         /// </summary>
         /// <returns>the collection</returns>
-        Collection<IBubble> GetBubbles();
+        ICollection<IBubble> GetBubbles();
 
         /// <summary>
         /// The Y coordinate of the lowest row
@@ -49,7 +50,7 @@ namespace Project
         /// </summary>
         /// <param name="b">The bubble to start the search for neighbors</param>
         /// <returns>the collection of neighbor with the same color as b</returns>
-        Collection<IBubble> GetSameColorNeighbors(IBubble b);
+        ICollection<IBubble> GetSameColorNeighbors(IBubble b);
 
         /// <summary>
         /// Moves the grid down by rows
@@ -61,7 +62,7 @@ namespace Project
         /// An unconnected bubble is a bubble that isn't connected to the top of the grid nor their neighbors are
         /// </summary>
         /// <returns>The collection of unconnected bubbles</returns>
-        Collection<IBubble> CheckForUnconnectedBubbles();
+        ICollection<IBubble> CheckForUnconnectedBubbles();
 
         /// <summary>
         /// Removes the bubble and all floating bubbles present after the removal
