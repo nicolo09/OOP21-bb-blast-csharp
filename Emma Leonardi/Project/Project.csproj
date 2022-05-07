@@ -33,7 +33,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Pappero.cs" />
+    <Compile Include="Bubble.cs" />
+    <Compile Include="BubblesGrid.cs" />
+    <Compile Include="COLOR.cs" />
+    <Compile Include="IBubble.cs" />
+    <Compile Include="IBubblesGrid.cs" />
+    <Compile Include="IGridInfo.cs" />
+    <Compile Include="Project.cs" />
+    <Compile Include="RegularHexGridInfo.cs" />
+    <Compile Include="TripletIntegerUtility.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
