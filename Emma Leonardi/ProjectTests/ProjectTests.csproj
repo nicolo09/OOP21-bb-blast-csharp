@@ -58,17 +58,16 @@
   <ItemGroup>
     <Compile Include="BubblesGridTests.cs" />
     <Compile Include="BubbleTests.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TripletIntegerUtilityTests.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Project\Project.csproj">
       <Project>{4A65E724-2A53-44CC-9E99-C4F656D13B4A}</Project>
       <Name>Project</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
