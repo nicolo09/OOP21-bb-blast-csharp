@@ -36,7 +36,7 @@ namespace Project.Tests
             Assert.AreEqual(coll.Count, g3.GetBubbles().Count, "The collections contain the same bubbles");
             IBubblesGrid g4 = new BubblesGrid(new Collection<IBubble>() { b1, b2, b3, b4 }, gridInfo);
             Assert.IsTrue(g4.GetBubbles().Intersect(g3.GetBubbles()).Count().Equals(g3.GetBubbles().Count > g4.GetBubbles().Count ? g3.GetBubbles().Count : g4.GetBubbles().Count), "Two grids with the same collection of bubbles are equals");
-            coll = new Collection<IBubble>(coll);
+            coll = new Collection<IBubble>();
             coll.Add(b6);
             Assert.IsFalse(coll.Equals(g3.GetBubbles()),
                     "Changes in the collection don't impact the grid, unless via grid methods");

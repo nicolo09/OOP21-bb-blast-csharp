@@ -54,7 +54,7 @@ namespace Project
         /// <summary>
         /// <inheritdoc/>
         /// </summary>
-        public Collection<IBubble> GetBubbles()
+        public ICollection<IBubble> GetBubbles()
         {
             var app = _grid.Values.GetEnumerator();
             var list = new List<IBubble>();
@@ -200,7 +200,7 @@ namespace Project
         /// <summary>
         /// <inheritdoc/>
         /// </summary>
-        public Collection<IBubble> CheckForUnconnectedBubbles()
+        public ICollection<IBubble> CheckForUnconnectedBubbles()
         {
             // The neighborsList hosts all the bubbles that are reachable by a bubble
             // connected to the top
@@ -244,7 +244,7 @@ namespace Project
         /// <summary>
         /// <inheritdoc/>
         /// </summary>
-        public Collection<IBubble> GetSameColorNeighbors(IBubble b)
+        public ICollection<IBubble> GetSameColorNeighbors(IBubble b)
         {
             _neighborsList.Clear();
             var t = ConvertCoords(b.Position);
