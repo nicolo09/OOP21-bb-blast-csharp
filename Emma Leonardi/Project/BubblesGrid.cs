@@ -14,7 +14,7 @@ namespace Project
             new Tuple<int, int, int>(-1, 1, 0),new Tuple<int, int, int>(0, 1, -1)
         };
         private readonly IList<IBubble> _neighborsList = new List<IBubble>();
-        private readonly GridInfo _info;
+        private readonly IGridInfo _info;
         private readonly double _size;
         private readonly double _xshift = 1.0 / 6.0;
         private readonly double _yshift = -1.0 / 3.0;
@@ -25,12 +25,12 @@ namespace Project
         /// This constructor creates an empty BubblesGrid
         /// </summary>
         /// <param name="info">The GridInfo that defines the dimentions of the grid</param>
-        public BubblesGrid(GridInfo info)
+        public BubblesGrid(IGridInfo info)
         {
             _info = info;
             _grid = new Dictionary<Tuple<int, int, int>, IBubble>();
-            //_size = _info.PointsHeight / (2.0 * (((3.0 / 4.0) * (_info.BubbleHeight - 1)) + 1));
-            //_maxBubbles = Convert.ToInt32(RATIOBUBBLES * _info.BubbleHeight);
+            _size = _info.PointsHeight / (2.0 * (((3.0 / 4.0) * (_info.BubbleHeight - 1)) + 1));
+            _maxBubbles = Convert.ToInt32(RATIOBUBBLES * _info.BubbleHeight);
         }
 
         /// <summary>
@@ -40,7 +40,7 @@ namespace Project
         /// </summary>
         /// <param name="collection"> The collection from which to read the bubbles to load</param>
         /// <param name="info"> the GridInfo that defines the dimentions of the grid</param>
-        public BubblesGrid(Collection<IBubble> collection, GridInfo info) : this(info)
+        public BubblesGrid(Collection<IBubble> collection, IGridInfo info) : this(info)
         {
             foreach (var elem in collection)
             {
@@ -71,7 +71,23 @@ namespace Project
         {
             if (_grid.Count > 0)
             {
-                //TODO
+                Tuple<int,int,int> lowestBubbleTripl = null;
+                foreach(var entry in _grid)
+                {
+                    if (lowestBubbleTripl==null)
+                    {
+                        lowestBubbleTripl = entry.Key;
+                    }
+                    else
+                    {
+                        if (lowestBubbleTripl.Item2 < entry.Key.Item2)
+                        {
+                            lowestBubbleTripl = entry.Key;
+                        }
+                    }
+
+                }
+                return _grid[lowestBubbleTripl].Position.Item2;
             }
             return 0;
         }
@@ -83,8 +99,24 @@ namespace Project
         {
             if (_grid.Count > 0)
             {
-                //TODO
-            }
+                Tuple<int, int, int> lowestBubbleTripl = null;
+                    foreach (var entry in _grid)
+                    {
+                        if (lowestBubbleTripl == null)
+                        {
+                            lowestBubbleTripl = entry.Key;
+                        }
+                        else
+                        {
+                            if (lowestBubbleTripl.Item2 < entry.Key.Item2)
+                            {
+                                lowestBubbleTripl = entry.Key;
+                            }
+                        }
+
+                    }
+                    return lowestBubbleTripl.Item2>=_maxBubbles;
+                }
             return false;
         }
         /// <summary>
@@ -289,14 +321,14 @@ namespace Project
         {
             return obj is BubblesGrid grid &&
                    EqualityComparer<IDictionary<Tuple<int, int, int>, IBubble>>.Default.Equals(_grid, grid._grid) &&
-                   EqualityComparer<GridInfo>.Default.Equals(_info, grid._info);
+                   EqualityComparer<IGridInfo>.Default.Equals(_info, grid._info);
         }
 
         public override int GetHashCode()
         {
             int hashCode = -595143820;
             hashCode = hashCode * -1521134295 + EqualityComparer<IDictionary<Tuple<int, int, int>, IBubble>>.Default.GetHashCode(_grid);
-            hashCode = hashCode * -1521134295 + EqualityComparer<GridInfo>.Default.GetHashCode(_info);
+            hashCode = hashCode * -1521134295 + EqualityComparer<IGridInfo>.Default.GetHashCode(_info);
             return hashCode;
         }
 
