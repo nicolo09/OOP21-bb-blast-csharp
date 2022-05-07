@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace Project
 {
@@ -319,9 +320,9 @@ namespace Project
 
         public override bool Equals(object obj)
         {
-            return obj is BubblesGrid grid &&
-                   EqualityComparer<IDictionary<Tuple<int, int, int>, IBubble>>.Default.Equals(_grid, grid._grid) &&
-                   EqualityComparer<IGridInfo>.Default.Equals(_info, grid._info);
+            return obj is BubblesGrid other &&
+                   _grid.Count == other._grid.Count && _grid.Intersect(other._grid).Count().Equals(_grid.Count)
+                   && _info.Equals(other._info);
         }
 
         public override int GetHashCode()
@@ -335,12 +336,12 @@ namespace Project
 
         public override string ToString()
         {
-            String s = "BubblesGrid [grid=[";
+            String s = "BubblesGrid [grid={";
             foreach (var entry in _grid)
             {
                 s = s + entry.ToString();
             }
-            s = s + "]]";
+            s = s + "}]";
             return s;
         }
     }

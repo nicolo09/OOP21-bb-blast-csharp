@@ -57,7 +57,7 @@ namespace Project
         public override bool Equals(object obj)
         {
             return obj is Bubble bubble &&
-                   EqualityComparer<Tuple<double, double>>.Default.Equals(Position, bubble.Position) &&
+                   Position.Item1.Equals(bubble.Position.Item1) && Position.Item2.Equals(bubble.Position.Item2)&&
                    Color == bubble.Color;
         }
 
