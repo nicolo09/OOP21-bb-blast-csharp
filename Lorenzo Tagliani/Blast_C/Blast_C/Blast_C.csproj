@@ -6,6 +6,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="..\..\..\Emma Leonardi\Project\Bubble.cs" Link="Bubble.cs" />
+    <Compile Include="..\..\..\Emma Leonardi\Project\COLOR.cs" Link="COLOR.cs" />
+    <Compile Include="..\..\..\Emma Leonardi\Project\IBubble.cs" Link="IBubble.cs" />
     <Compile Include="..\..\..\Nicolo Guerra\Project\FilePersister.cs" Link="FilePersister.cs" />
     <Compile Include="..\..\..\Nicolo Guerra\Project\IPersister.cs" Link="IPersister.cs" />
   </ItemGroup>
