@@ -26,7 +26,7 @@ namespace Blast_C
         /// </summary>
         /// <param name="p">Position of the bubble to generate</param>
         /// <returns>Random color generated bubble.</returns>
-        public Bubble Generate(Tuple<double, double> p)
+        public IBubble Generate(Tuple<double, double> p)
         {
             Array v = Enum.GetValues(typeof(COLOR));
             if (_col.Count == 0)
@@ -34,7 +34,7 @@ namespace Blast_C
                 return new Bubble(p, COLOR.PURPLE);
             }
             COLOR color = (COLOR)v.GetValue(_rnd.Next(v.Length-1));
-            return new IBubble(p, color);
+            return new Bubble(p, color);
         }
 
         public override bool Equals(object obj)

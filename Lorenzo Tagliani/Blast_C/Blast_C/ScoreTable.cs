@@ -9,28 +9,28 @@ namespace Blast_C
     /// </summary>
     public class ScoreTable
     {
-        private readonly IList<Score> _l;
+        private readonly IList<IScore> _l;
         /// <summary>
         /// Create a list of scores.
         /// </summary>
         public ScoreTable()
         {
-            _l = new List<Score>();
+            _l = new List<IScore>();
         }
         /// <summary>
         /// Add a score to the list.
         /// </summary>
         /// <param name="s">The score to add.</param>
-        public void AddScore(Score s)
+        public void AddScore(IScore s)
         {
             _l.Add(s);
         }
         /// <summary>
         /// Return the list of scores.
         /// </summary>
-        public IList<Score> GetList()
+        public IList<IScore> GetList()
         {
-            return new List<Score>(_l);
+            return new List<IScore>(_l);
         }
     }
 }
