@@ -13,6 +13,8 @@
     <Compile Include="..\..\Emma Leonardi\Project\IBubble.cs" Link="IBubble.cs" />
     <Compile Include="..\..\Emma Leonardi\Project\IBubblesGrid.cs" Link="IBubblesGrid.cs" />
     <Compile Include="..\..\Emma Leonardi\Project\TripletIntegerUtility.cs" Link="TripletIntegerUtility.cs" />
+    <Compile Include="..\..\Lorenzo Tagliani\Blast_C\Blast_C\BubbleGenerator.cs" Link="BubbleGenerator.cs" />
+    <Compile Include="..\..\Lorenzo Tagliani\Blast_C\Blast_C\IBubbleGenerator.cs" Link="IBubbleGenerator.cs" />
     <Compile Include="..\..\Nicolo Guerra\Project\IGridInfo.cs" Link="IGridInfo.cs" />
     <Compile Include="..\..\Nicolo Guerra\Project\RegularHexGridInfo.cs" Link="RegularHexGridInfo.cs" />
   </ItemGroup>
