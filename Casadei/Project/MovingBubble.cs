@@ -24,7 +24,7 @@ namespace Project
 
         public void Move() => this.MoveBy(_speed);
 
-        public void SetSpeed(Tuple<double, double> speed) => _speed = speed;
+        public void SetSpeed(Tuple<double, double> speed) => _speed = new Tuple<double, double>(speed.Item1, speed.Item2);
 
         public void SwapSpeedX() => _speed = new Tuple<double, double>(-_speed.Item1, _speed.Item2);
 

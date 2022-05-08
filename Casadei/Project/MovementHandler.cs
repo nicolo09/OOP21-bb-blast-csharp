@@ -10,13 +10,17 @@ namespace Project
 
         public IMovingBubble? Shot
         {
-            get { return Shot; }
+            get { return _shot; }
             set
             {
-                Shot = value;
-                IsShotSet = true;
+                _shot = value;
+                if(value != null) 
+                { 
+                    IsShotSet = true;
+                }
             }
         }
+        private IMovingBubble? _shot;
 
         private readonly IGridInfo _infos;
 
@@ -31,7 +35,7 @@ namespace Project
             _action = action;
 
             IsShotSet = false;
-            Shot = null;
+            _shot = null;
         }
         public bool Handle()
         {
@@ -39,47 +43,47 @@ namespace Project
             {
                 return false;
             }
-            var staticCopy = Shot.GetStationaryCopy();
+            var staticCopy = _shot.GetStationaryCopy();
             if (_grid.IsBubbleAttachable(staticCopy))
             {
                 _grid.AddBubble(staticCopy);
                 _action.Invoke(staticCopy);
-                this.Shot = null;
+                this._shot = null;
                 this.IsShotSet = false;
                 return false;
             }
-            if (this.Shot.GetSpeedY() > 0)
+            if (this._shot.GetSpeedY() > 0)
             {
                 return false;
             }
 
             bool fixedX = false;
             bool fixedY = false;
-            var nextPos = GetNextPos(Shot);
+            var nextPos = GetNextPos(_shot);
 
             if (nextPos.Item1 < _infos.BubbleRadius || nextPos.Item1 > _infos.PointsWidth - _infos.BubbleRadius)
             {
-                FixMovement(Shot, nextPos);
+                FixMovement(_shot, nextPos);
                 fixedX = true;
             }
 
             if (nextPos.Item2 < _infos.BubbleRadius) 
             {
-                Shot.MoveBy(new Tuple<double, double>(0, -Shot.Position.Item2 + _infos.BubbleRadius));
+                _shot.MoveBy(new Tuple<double, double>(0, -_shot.Position.Item2 + _infos.BubbleRadius));
                 fixedY = true;
             }
 
             if (fixedX && !fixedY)
             {
-                Shot.MoveBy(new Tuple<double, double>(0, Shot.GetSpeedY()));
+                _shot.MoveBy(new Tuple<double, double>(0, _shot.GetSpeedY()));
             }
             else if (!fixedX && fixedY)
             {
-                Shot.MoveBy(new Tuple<double, double>(Shot.GetSpeedX(), 0));
+                _shot.MoveBy(new Tuple<double, double>(_shot.GetSpeedX(), 0));
             }
             else if (!fixedX && !fixedY)
             {
-                Shot.Move();
+                _shot.Move();
             }
 
 
