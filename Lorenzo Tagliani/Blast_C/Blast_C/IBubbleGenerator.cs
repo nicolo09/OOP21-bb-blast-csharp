@@ -15,6 +15,6 @@ namespace Blast_C
         /// </summary>
         /// <param name="p">Position of the bubble.</param>
         /// <returns>The generated bubble.</returns>
-        Bubble Generate(Tuple<double, double> p);
+        IBubble Generate(Tuple<double, double> p);
     }
 }

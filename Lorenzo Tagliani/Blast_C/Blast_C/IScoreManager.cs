@@ -13,12 +13,12 @@ namespace Blast_C
         /// Save a score
         /// </summary>
         /// <param name="s">The input score</param>
-        void Save(Score s);
+        void Save(IScore s);
         /// <summary>
         /// Load a score
         /// </summary>
         /// <returns>List of loaded scores</returns>
-        IList<Score> Load();
+        IList<IScore> Load();
         /// <summary>
         /// Reset all the scores
         /// </summary>

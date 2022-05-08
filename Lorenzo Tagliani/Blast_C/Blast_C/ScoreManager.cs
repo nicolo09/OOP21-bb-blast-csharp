@@ -23,7 +23,7 @@ namespace Blast_C
         /// Load the list of scores.
         /// </summary>
         /// <returns>The loaded list of scores, or a new empty list in case of error.</returns>
-        public IList<Score> Load()
+        public IList<IScore> Load()
         {
             try
             {
@@ -31,7 +31,7 @@ namespace Blast_C
             }
             catch
             {
-                return new List<Score>();
+                return new List<IScore>();
             }
         }
         /// <summary>
@@ -42,7 +42,7 @@ namespace Blast_C
         /// Save a score on the list of scores.
         /// </summary>
         /// <param name="s">The score to save.</param>
-        public void Save(Score s)
+        public void Save(IScore s)
         {
             try
             {

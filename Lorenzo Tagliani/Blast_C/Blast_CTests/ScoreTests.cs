@@ -9,28 +9,15 @@ namespace Blast_C.Tests
     [TestClass()]
     public class ScoreTests
     {
+        private readonly IScore s1 = new Score("lorenzo", 1000);
+        private readonly IScore s2 = new Score("nico", 800);
         [TestMethod()]
         public void ScoreTest()
         {
-            Assert.Fail();
-        }
-
-        [TestMethod()]
-        public void ToStringTest()
-        {
-            Assert.Fail();
-        }
-
-        [TestMethod()]
-        public void EqualsTest()
-        {
-            Assert.Fail();
-        }
-
-        [TestMethod()]
-        public void GetHashCodeTest()
-        {
-            Assert.Fail();
+            Assert.IsTrue(s1.Name.Equals("lorenzo"), "The two names are diffrent");
+            Assert.AreSame(s1.ScoreValue, (1000), "The two scores are diffrent");
+            Assert.AreNotEqual(s1.Date, null, "The date exist");
+            Assert.IsFalse(s2.Equals(s1), "They are the same");
         }
     }
 }
