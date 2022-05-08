@@ -41,7 +41,7 @@ namespace Project
         /// </summary>
         /// <param name="collection"> The collection from which to read the bubbles to load</param>
         /// <param name="info"> the GridInfo that defines the dimentions of the grid</param>
-        public BubblesGrid(Collection<IBubble> collection, IGridInfo info) : this(info)
+        public BubblesGrid(ICollection<IBubble> collection, IGridInfo info) : this(info)
         {
             foreach (var elem in collection)
             {
@@ -225,7 +225,10 @@ namespace Project
             difference.Values.CopyTo(values, 0);
             return new Collection<IBubble>(values);
         }
-
+        /// <summary>
+        /// Recursively checks for the connected bubbles in the grid
+        /// </summary>
+        /// <param name="key"> the triplet of the bubble</param>
         private void CheckForUnconnectedBubblesRecursive(Tuple<int, int, int> key)
         {
             _neighborsList.Add(_grid[key]);
@@ -256,7 +259,10 @@ namespace Project
             _neighborsList.CopyTo(values, 0);
             return new Collection<IBubble>(values);
         }
-
+        /// <summary>
+        /// Recursively searches for the same color neighbors
+        /// </summary>
+        /// <param name="t"> the triplet to start</param>
         private void GetSameColorNeighborsRecursive(Tuple<int, int, int> t)
         {
             if (_grid.ContainsKey(t) && !_neighborsList.Contains(_grid[t]))

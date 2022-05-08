@@ -48,12 +48,17 @@ namespace Project
             Color = c;
         }
 
-        
+        /// <summary>
+        /// <inheritdoc/>
+        /// </summary>
         public void MoveBy(Tuple<double, double> p)
         {
             Position = new Tuple<double, double>(Position.Item1 + p.Item1, Position.Item2 + p.Item2);
         }
 
+        /// <summary>
+        /// <inheritdoc/>
+        /// </summary>
         public override bool Equals(object obj)
         {
             return obj is Bubble bubble &&
@@ -61,6 +66,9 @@ namespace Project
                    Color == bubble.Color;
         }
 
+        /// <summary>
+        /// <inheritdoc/>
+        /// </summary>
         public override int GetHashCode()
         {
             int hashCode = -866678350;
@@ -69,6 +77,9 @@ namespace Project
             return hashCode;
         }
 
+        /// <summary>
+        /// <inheritdoc/>
+        /// </summary>
         public override string ToString()
         {
             return "Bubble " + Color.ToString() + ", " + Position.ToString();
