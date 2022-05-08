@@ -8,7 +8,7 @@ namespace Blast_C
     /// <summary>
     /// Class that implement the methods of score manager.
     /// </summary>
-    class ScoreManager : IScoreManager
+    public class ScoreManager : IScoreManager
     {
         private readonly IPersister<ScoreTable> _f;
         /// <summary>

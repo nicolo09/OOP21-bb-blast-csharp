@@ -7,7 +7,7 @@ namespace Blast_C
     /// <summary>
     /// Class that create a table of scores.
     /// </summary>
-    class ScoreTable
+    public class ScoreTable
     {
         private readonly IList<Score> _l;
         /// <summary>

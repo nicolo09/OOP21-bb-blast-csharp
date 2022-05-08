@@ -8,7 +8,7 @@ namespace Blast_C
     /// <summary>
     /// Class for the generation of a random bubble.
     /// </summary>
-    class BubbleGenerator : IBubbleGenerator
+    public class BubbleGenerator : IBubbleGenerator
     {
         private readonly List<COLOR> _col;
         private readonly Random _rnd;
@@ -34,7 +34,7 @@ namespace Blast_C
                 return new Bubble(p, COLOR.PURPLE);
             }
             COLOR color = (COLOR)v.GetValue(_rnd.Next(v.Length-1));
-            return new Bubble(p, color);
+            return new IBubble(p, color);
         }
 
         public override bool Equals(object obj)
