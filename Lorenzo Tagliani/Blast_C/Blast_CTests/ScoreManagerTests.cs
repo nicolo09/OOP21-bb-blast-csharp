@@ -34,7 +34,7 @@ namespace Blast_C.Tests
             x.Save(s1);
             x.Save(s2);
             x.Save(s3);
-            Assert.AreEqual(new List<IScore>(x.Load()), y, "They are not the same");
+            Assert.AreEqual(x.Load(), y, "They are not the same");
         }
 
         [TestMethod()]
