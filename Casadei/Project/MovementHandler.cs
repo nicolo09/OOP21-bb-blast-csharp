@@ -4,10 +4,14 @@ using System.Text;
 
 namespace Project
 {
+    /// <summary>
+    /// Implementation of MovementHandler.
+    /// </summary>
     public class MovementHandler : IMovementHandler
     {
+        /// <inheritdoc/>
         public bool IsShotSet { get; private set; }
-
+        /// <inheritdoc/>
         public IMovingBubble? Shot
         {
             get { return _shot; }
@@ -27,7 +31,12 @@ namespace Project
         private readonly IBubblesGrid _grid;
 
         private readonly Action<IBubble> _action;
-
+        /// <summary>
+        /// Returns a new MovementHandler.
+        /// </summary>
+        /// <param name="infos"> the informations about the grid</param>
+        /// <param name="grid"> the BubblesGrid where the MovementBubble will be attached to</param>
+        /// <param name="action"> the action to perform when a MovingBubble is attached to the BubblesGrid</param>
         public MovementHandler(IGridInfo infos, IBubblesGrid grid, Action<IBubble> action)
         {
             _infos = infos;
@@ -37,6 +46,7 @@ namespace Project
             IsShotSet = false;
             _shot = null;
         }
+        /// <inheritdoc/>
         public bool Handle()
         {
             if (!IsShotSet)
