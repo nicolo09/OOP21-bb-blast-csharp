@@ -7,7 +7,7 @@ namespace Blast_C
     /// <summary>
     /// Interface that represent the Score type.
     /// </summary>
-    interface IScore
+    public interface IScore
     {
         /// <summary>
         /// The name of the actual player.

@@ -8,7 +8,7 @@ namespace Blast_C
     /// <summary>
     /// Interface for the bubble generator.
     /// </summary>
-    interface IBubbleGenerator
+    public interface IBubbleGenerator
     {
         /// <summary>
         /// Generate a bubble.

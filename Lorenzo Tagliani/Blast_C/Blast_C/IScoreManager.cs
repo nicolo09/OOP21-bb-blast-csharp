@@ -7,7 +7,7 @@ namespace Blast_C
     /// <summary>
     /// Interface that represent the score manager.
     /// </summary>
-    interface IScoreManager
+    public interface IScoreManager
     {
         /// <summary>
         /// Save a score

@@ -7,7 +7,7 @@ namespace Blast_C
     /// <summary>
     /// Class that represent a score.
     /// </summary>
-    class Score : IScore
+    public class Score : IScore
     {
         public string Name { get; }
         public int ScoreValue { get; }
