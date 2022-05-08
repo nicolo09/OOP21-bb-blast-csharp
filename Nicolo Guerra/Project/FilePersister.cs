@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Xml.Serialization;
 
 namespace Project
@@ -10,12 +11,11 @@ namespace Project
     /// <typeparam name="T">The type of object to save.</typeparam>
     public class FilePersister<T> : IPersister<T>
     {
-        private static readonly bool APPEND = false;
         private readonly String _filePath;
         /// <summary>
-        /// Creates a new FilePersister which saves object in form of an XML file. 
+        /// Creates a new FilePersister which saves object in form of a binary file. 
         /// </summary>
-        /// <param name="filePath">The path where the XML file will be saved</param>
+        /// <param name="filePath">The path where the binary file will be saved</param>
         public FilePersister(String filePath)
         {
             this._filePath = filePath;
@@ -23,17 +23,17 @@ namespace Project
         /// <inheritdoc/>
         public T Load()
         {
-            TextReader reader = null;
+            Stream fileStream = null;
             try
             {
-                XmlSerializer s = new XmlSerializer(typeof(T));
-                reader = new StreamReader(_filePath);
-                return (T)s.Deserialize(reader);
+                BinaryFormatter des = new BinaryFormatter();
+                fileStream = File.OpenRead(_filePath);
+                return (T)des.Deserialize(fileStream);
             }
             finally
             {
-                if (reader != null)
-                    reader.Close();
+                if (fileStream != null)
+                    fileStream.Close();
             }
         }
         /// <inheritdoc/>
@@ -55,17 +55,17 @@ namespace Project
             if (!Directory.Exists(_filePath))
             {
                 Directory.CreateDirectory(Directory.GetParent(_filePath).ToString());
-                TextWriter writer = null;
+                Stream fileStream = null;
                 try
                 {
-                    XmlSerializer s = new XmlSerializer(typeof(T));
-                    writer = new StreamWriter(_filePath, APPEND);
-                    s.Serialize(writer, objectToSave);
+                    BinaryFormatter ser = new BinaryFormatter();
+                    fileStream = File.Create(_filePath);
+                    ser.Serialize(fileStream, objectToSave);
                 }
                 finally
                 {
-                    if (writer != null)
-                        writer.Close();
+                    if (fileStream != null)
+                        fileStream.Close();
                 }
             }
         }
