@@ -7,6 +7,7 @@ namespace Blast_C
     /// <summary>
     /// Class that create a table of scores.
     /// </summary>
+    [Serializable()]
     public class ScoreTable
     {
         private readonly IList<IScore> _l;

@@ -7,6 +7,7 @@ namespace Blast_C
     /// <summary>
     /// Class that represent a score.
     /// </summary>
+    [Serializable()]
     public class Score : IScore
     {
         public string Name { get; }

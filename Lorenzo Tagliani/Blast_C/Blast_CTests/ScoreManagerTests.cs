@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.IO;
 using Project;
+using System.Linq;
 
 namespace Blast_C.Tests
 {
@@ -34,7 +35,7 @@ namespace Blast_C.Tests
             x.Save(s1);
             x.Save(s2);
             x.Save(s3);
-            Assert.AreEqual(x.Load(), y, "They are not the same");
+            Assert.IsTrue(Enumerable.SequenceEqual(x.Load(), y));
         }
 
         [TestMethod()]
