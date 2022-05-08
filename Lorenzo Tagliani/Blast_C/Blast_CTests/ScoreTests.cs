@@ -15,7 +15,7 @@ namespace Blast_C.Tests
         public void ScoreTest()
         {
             Assert.IsTrue(s1.Name.Equals("lorenzo"), "The two names are diffrent");
-            Assert.AreSame(s1.ScoreValue, (1000), "The two scores are diffrent");
+            Assert.AreEqual(s1.ScoreValue, (1000), "The two scores are diffrent");
             Assert.AreNotEqual(s1.Date, null, "The date exist");
             Assert.IsFalse(s2.Equals(s1), "They are the same");
         }
