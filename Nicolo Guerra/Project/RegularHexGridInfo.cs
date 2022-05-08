@@ -16,7 +16,7 @@ namespace Project
         /// <inheritdoc/>
         public double PointsHeight => 3.0 / 4.0 * (2 * (this._ratio / Math.Sqrt(3)) * (this.BubbleHeight - 1)) + 2 * (this._ratio / Math.Sqrt(3));
         /// <inheritdoc/>
-        public double BubbleRadius => throw new System.NotImplementedException();
+        public double BubbleRadius => this._ratio / 2;
         private readonly double _ratio;
         public RegularHexGridInfo(int bubbleWidth, int bubbleHeight, double pointBubbleRatio)
         {

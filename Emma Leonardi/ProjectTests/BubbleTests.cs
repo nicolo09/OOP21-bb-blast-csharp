@@ -49,7 +49,7 @@ namespace Project.Tests
             t=new Tuple<double, double> (t.Item1 + 3, t.Item2 + 3);
             Assert.AreEqual(t, new Tuple<double, double>(1 + 3, 2 + 3), "The new position is the sum of the components");
             Assert.IsFalse(t.Equals(b.Position), "Bubble can only be modified by Bubble methods");
-            b.moveBy(new Tuple<double, double>(4, 4));
+            b.MoveBy(new Tuple<double, double>(4, 4));
             Assert.AreEqual(b.Position, new Tuple<double, double>(5, 6), "The same position");
         }
 

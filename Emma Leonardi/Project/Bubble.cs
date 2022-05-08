@@ -49,7 +49,7 @@ namespace Project
         }
 
         
-        void IBubble.moveBy(Tuple<double, double> p)
+        public void MoveBy(Tuple<double, double> p)
         {
             Position = new Tuple<double, double>(Position.Item1 + p.Item1, Position.Item2 + p.Item2);
         }

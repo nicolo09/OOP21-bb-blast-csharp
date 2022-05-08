@@ -13,7 +13,7 @@ namespace Project
         /// The position to add so that the Bubble is in position (x + px, y +py).
         /// </summary>
         /// <param name="p">the position to add </param>
-        void moveBy(Tuple<double,double> p);
+        void MoveBy(Tuple<double,double> p);
 
 
     }
